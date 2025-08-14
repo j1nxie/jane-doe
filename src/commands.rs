@@ -1,5 +1,8 @@
 use crate::Context;
 
+pub mod alias;
+pub mod artist;
+pub mod help;
 pub mod status;
 
 pub(crate) fn get_bot_avatar(ctx: Context<'_>) -> String {

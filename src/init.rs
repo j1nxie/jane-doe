@@ -39,6 +39,9 @@ pub async fn init_discord_client(token: &str, data: Data) -> anyhow::Result<sere
         .options(poise::FrameworkOptions {
             commands: vec![
                 commands::status::status(),
+                commands::alias::alias(),
+                commands::artist::artist(),
+                commands::help::help(),
             ],
             prefix_options: poise::PrefixFrameworkOptions {
                 prefix: Some("j!".into()),

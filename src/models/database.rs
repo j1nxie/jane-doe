@@ -1,8 +1,8 @@
 #[derive(Debug, Clone)]
 pub struct AiArtist {
-    id: i64,
-    name: i64,
-    created_at: chrono::NaiveDateTime,
+    pub id: i64,
+    pub name: String,
+    pub aliases: Vec<String>,
 }
 
 #[derive(Debug, Clone)]
