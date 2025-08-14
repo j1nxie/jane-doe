@@ -1,0 +1,28 @@
+services:
+    janedoe_postgres:
+        container_name: janedoe_postgres
+        image: postgres:17
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready", "-d", "janedoe_local"]
+            interval: 1s
+            timeout: 5s
+            retries: 5
+        environment:
+            POSTGRES_DB: janedoe_local
+            POSTGRES_PASSWORD: localdevpassword
+        ports:
+            - "5432:5432"
+        volumes:
+            - janedoe-db:/data/postgres
+
+    janedoe_pgadmin:
+        container_name: janedoe_pgadmin
+        image: dpage/pgadmin4:8.4
+        ports:
+            - "5050:80"
+        environment:
+            PGADMIN_DEFAULT_EMAIL: pgadmin@example.com
+            PGADMIN_DEFAULT_PASSWORD: password
+
+volumes:
+    janedoe-db:

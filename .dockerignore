@@ -1,0 +1,11 @@
+.env
+.env.*
+database/
+Dockerfile
+docker-compose.yml
+.gitignore
+config.alloy
+LICENSE-*
+*.md
+.git
+target/
