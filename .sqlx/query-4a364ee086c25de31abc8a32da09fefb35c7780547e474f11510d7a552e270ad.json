@@ -1,0 +1,26 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                        SELECT aa.name as artist_name, aw.dhash\n                        FROM artist_artworks aw\n                        JOIN ai_artists aa ON aw.artist_id = aa.id\n                    ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "artist_name",
+        "type_info": "Varchar"
+      },
+      {
+        "ordinal": 1,
+        "name": "dhash",
+        "type_info": "Bytea"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      false,
+      false
+    ]
+  },
+  "hash": "4a364ee086c25de31abc8a32da09fefb35c7780547e474f11510d7a552e270ad"
+}

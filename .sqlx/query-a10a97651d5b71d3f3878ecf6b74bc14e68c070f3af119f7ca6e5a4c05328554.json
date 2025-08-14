@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                    DELETE FROM ai_artists\n                    WHERE name = $1;\n                ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "a10a97651d5b71d3f3878ecf6b74bc14e68c070f3af119f7ca6e5a4c05328554"
+}

@@ -1,0 +1,26 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT a.id as artist_id, a.name as search_term\n            FROM ai_artists a\n            UNION ALL\n            SELECT al.artist_id, al.alias as search_term\n            FROM ai_artist_aliases al;\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "artist_id",
+        "type_info": "Int8"
+      },
+      {
+        "ordinal": 1,
+        "name": "search_term",
+        "type_info": "Varchar"
+      }
+    ],
+    "parameters": {
+      "Left": []
+    },
+    "nullable": [
+      null,
+      null
+    ]
+  },
+  "hash": "1f6281866b256be245066cd5d8796e4430e26ebf56d99b4fe6bae0664d8e8ed2"
+}

@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                    DELETE FROM ai_artist_aliases\n                    WHERE alias = $1;\n                ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "d4ac2f94375b1f1bab29102bba2b14f1b7caf72d6cd1c21a972be6f98b1eee43"
+}

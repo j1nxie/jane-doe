@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            INSERT INTO\n                artist_artworks (artist_id, original_url, dhash)\n            VALUES\n                ($1, $2, $3)\n            ON CONFLICT (original_url) DO NOTHING;\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Int8",
+        "Text",
+        "Bytea"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "1461d29b46782d83104e133447f232e1675c789b164c9b44577df9dd44a72590"
+}

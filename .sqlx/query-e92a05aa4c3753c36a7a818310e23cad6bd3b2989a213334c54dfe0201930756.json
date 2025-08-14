@@ -1,0 +1,14 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            INSERT INTO\n                ai_artists (name)\n            VALUES\n                ($1);\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Varchar"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "e92a05aa4c3753c36a7a818310e23cad6bd3b2989a213334c54dfe0201930756"
+}
