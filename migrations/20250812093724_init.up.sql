@@ -10,7 +10,7 @@ CREATE TABLE ai_artists (
 
 CREATE TABLE ai_artist_aliases (
     id BIGSERIAL PRIMARY KEY,
-    artist_id BIGINT REFERENCES ai_artists(id),
+    artist_id BIGINT REFERENCES ai_artists(id) ON DELETE CASCADE,
     alias VARCHAR(255) NOT NULL,
     created_at TIMESTAMPTZ DEFAULT NOW(),
 
@@ -19,7 +19,7 @@ CREATE TABLE ai_artist_aliases (
 
 CREATE TABLE artist_artworks (
     id BIGSERIAL PRIMARY KEY,
-    artist_id BIGINT REFERENCES ai_artists(id),
+    artist_id BIGINT REFERENCES ai_artists(id) ON DELETE CASCADE,
     original_url TEXT NOT NULL,
     dhash BYTEA NOT NULL,
     scraped_at TIMESTAMPTZ DEFAULT NOW(),
@@ -29,7 +29,7 @@ CREATE TABLE artist_artworks (
 
 CREATE TABLE scrape_status (
     id INTEGER PRIMARY KEY,
-    artist_id BIGINT REFERENCES ai_artists(id),
+    artist_id BIGINT REFERENCES ai_artists(id) ON DELETE CASCADE,
     latest_post_id BIGINT NOT NULL,
     platform TEXT NOT NULL,
     scraped_at TIMESTAMPTZ,
