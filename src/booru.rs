@@ -130,10 +130,10 @@ pub struct DanbooruConfig {
 impl DanbooruConfig {
     fn try_from_env() -> anyhow::Result<Self> {
         let api_key = std::env::var("DANBOORU_API_KEY").inspect_err(
-            |e| tracing::error!(err = ?e, "an error occurred when initializing gelbooru api key"),
+            |e| tracing::error!(err = ?e, "an error occurred when initializing danbooru api key"),
         )?;
         let login = std::env::var("DANBOORU_LOGIN").inspect_err(
-            |e| tracing::error!(err = ?e, "an error occurred when initializing gelbooru user id"),
+            |e| tracing::error!(err = ?e, "an error occurred when initializing danbooru login"),
         )?;
 
         Ok(Self { api_key, login })

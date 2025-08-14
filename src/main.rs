@@ -1,8 +1,7 @@
-use std::collections::HashMap;
 use std::process::ExitCode;
 
 use clap::Parser;
-use poise::{CreateReply, serenity_prelude as serenity};
+use poise::serenity_prelude as serenity;
 use rayon::prelude::*;
 use sqlx::{Pool, Postgres};
 
