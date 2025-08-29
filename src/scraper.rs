@@ -61,7 +61,7 @@ async fn scrape_gelbooru(
             FROM
                 scrape_status
             WHERE
-                artist_id = $1 AND platform = 'danbooru'
+                artist_id = $1 AND platform = 'gelbooru'
         "#,
         artist_id
     )
