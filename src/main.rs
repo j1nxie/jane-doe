@@ -171,7 +171,7 @@ async fn inner_main() -> anyhow::Result<()> {
     tracing::info!("finished initializing!");
 
     match cli.command {
-        Command::Start => {
+        Some(Command::Start) | None => {
             let token = std::env::var("DISCORD_TOKEN").expect("missing DISCORD_TOKEN");
 
             let mut client = init::init_discord_client(&token, data.clone()).await?;
@@ -179,7 +179,7 @@ async fn inner_main() -> anyhow::Result<()> {
 
             client.start().await?;
         }
-        Command::Scrape => {
+        Some(Command::Scrape) => {
             scrape_task(&data).await?;
         }
     }

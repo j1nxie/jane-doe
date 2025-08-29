@@ -17,18 +17,21 @@ CREATE TABLE ai_artist_aliases (
     UNIQUE(artist_id, alias)
 );
 
+CREATE TYPE PLATFORM AS ENUM ('gelbooru', 'danbooru', 'rule34');
+
 CREATE TABLE artist_artworks (
     id BIGSERIAL PRIMARY KEY,
     artist_id BIGINT REFERENCES ai_artists(id) ON DELETE CASCADE,
-    original_url TEXT NOT NULL,
+    platform PLATFORM NOT NULL,
+    original_id BIGINT NOT NULL,
     dhash BYTEA NOT NULL,
     scraped_at TIMESTAMPTZ DEFAULT NOW(),
 
-    UNIQUE(original_url)
+    UNIQUE(platform, original_id)
 );
 
 CREATE TABLE scrape_status (
-    id INTEGER PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     artist_id BIGINT REFERENCES ai_artists(id) ON DELETE CASCADE,
     latest_post_id BIGINT NOT NULL,
     platform TEXT NOT NULL,
@@ -38,7 +41,6 @@ CREATE TABLE scrape_status (
 );
 
 CREATE INDEX idx_dhash ON artist_artworks(dhash);
-CREATE INDEX idx_dhash_prefix ON artist_artworks(substring(dhash FROM 1 FOR 32));
 CREATE INDEX idx_artist_alias ON ai_artist_aliases(artist_id, alias);
 
 WITH initial_seeds AS (

@@ -5,7 +5,7 @@ use clap::{Parser, Subcommand};
 #[command(propagate_version = true)]
 pub struct Cli {
     #[command(subcommand)]
-    pub command: Command,
+    pub command: Option<Command>,
 
     /// Should we log debugging things?
     #[arg(global = true, long)]

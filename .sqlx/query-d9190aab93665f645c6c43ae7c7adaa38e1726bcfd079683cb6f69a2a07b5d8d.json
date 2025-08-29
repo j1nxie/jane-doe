@@ -1,0 +1,22 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT\n                latest_post_id\n            FROM\n                scrape_status\n            WHERE\n                artist_id = $1 AND platform = 'rule34'\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "latest_post_id",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int8"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "d9190aab93665f645c6c43ae7c7adaa38e1726bcfd079683cb6f69a2a07b5d8d"
+}

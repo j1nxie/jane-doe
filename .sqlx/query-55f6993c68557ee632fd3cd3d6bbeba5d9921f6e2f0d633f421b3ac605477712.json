@@ -1,0 +1,28 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            INSERT INTO\n                artist_artworks (artist_id, platform, original_id, dhash)\n            VALUES\n                ($1, $2, $3, $4)\n            ON CONFLICT (platform, original_id) DO NOTHING;\n        ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Int8",
+        {
+          "Custom": {
+            "name": "platform",
+            "kind": {
+              "Enum": [
+                "gelbooru",
+                "danbooru",
+                "rule34"
+              ]
+            }
+          }
+        },
+        "Int8",
+        "Bytea"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "55f6993c68557ee632fd3cd3d6bbeba5d9921f6e2f0d633f421b3ac605477712"
+}

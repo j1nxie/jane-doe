@@ -1,0 +1,22 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT\n                latest_post_id\n            FROM\n                scrape_status\n            WHERE\n                artist_id = $1 AND platform = 'danbooru'\n        ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "latest_post_id",
+        "type_info": "Int8"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Int8"
+      ]
+    },
+    "nullable": [
+      false
+    ]
+  },
+  "hash": "cdae92fb7d2d19b76c3b92b90d2c4a15941e6fdbc0f75f09fa8dfd931e5a03fa"
+}

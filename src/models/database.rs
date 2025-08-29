@@ -1,3 +1,5 @@
+use serde::{Deserialize, Serialize};
+
 #[derive(Debug, Clone)]
 pub struct AiArtist {
     pub id: i64,
@@ -19,4 +21,12 @@ pub struct ArtworkMatch {
     pub artist_name: String,
     pub confidence: f32,
     pub hash_distance: u32,
+}
+
+#[derive(Debug, Clone, PartialEq, PartialOrd, Deserialize, Serialize, sqlx::Type)]
+#[sqlx(type_name = "platform", rename_all = "lowercase")]
+pub enum Platform {
+    Gelbooru,
+    Danbooru,
+    Rule34,
 }

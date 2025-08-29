@@ -1,0 +1,16 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                INSERT INTO\n                    scrape_status (artist_id, latest_post_id, platform, scraped_at)\n                VALUES\n                    ($1, $2, $3, NOW())\n                ON CONFLICT (artist_id, platform) DO UPDATE SET\n                    latest_post_id = excluded.latest_post_id,\n                    scraped_at = NOW();\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Int8",
+        "Int8",
+        "Text"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "8547b47cc27202e0364c0932752318b6ccc8eb08d4eae0999d2742130eb9601d"
+}
