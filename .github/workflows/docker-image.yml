@@ -91,6 +91,7 @@ jobs:
 
       - name: Deploy with Kamal
         env:
+          VERSION: latest
           KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
 
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
