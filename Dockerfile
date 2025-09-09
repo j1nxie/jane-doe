@@ -16,6 +16,7 @@ COPY . .
 RUN cargo build --release --target x86_64-unknown-linux-musl
 
 FROM gcr.io/distroless/static AS runtime
+LABEL service="jane-doe"
 WORKDIR /app
 COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/jane-doe /app/
 CMD ["/app/jane-doe", "start"]
