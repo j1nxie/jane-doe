@@ -10,6 +10,8 @@ on:
       - "Dockerfile"
       - ".github/workflows/docker-image.yml"
       - ".sqlx/*.json"
+      - ".kamal/secrets"
+      - "config/deploy.yml"
     branches:
       - "main"
     tags:
@@ -20,6 +22,9 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4

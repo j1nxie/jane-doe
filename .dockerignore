@@ -9,3 +9,4 @@ LICENSE-*
 *.md
 .git
 target/
+config/deploy.yml
