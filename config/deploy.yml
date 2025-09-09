@@ -1,0 +1,50 @@
+service: jane-doe
+image: j1nxie/jane-doe
+
+servers:
+  web:
+    hosts:
+      - <%= ENV['TAILSCALE_HOST'] %>
+    proxy: false
+
+registry:
+  server: ghcr.io
+  username: j1nxie
+
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+env:
+  secret:
+    - DATABASE_URL
+    - DISCORD_TOKEN
+
+    - GELBOORU_API_KEY
+    - GELBOORU_USER_ID
+
+    - DANBOORU_API_KEY
+    - DANBOORU_LOGIN
+
+    - RULE34_API_KEY
+    - RULE34_USER_ID
+
+builder:
+  arch: amd64
+  args:
+      GIT_SHA: <%= `git rev-parse HEAD`.strip %>
+
+boot:
+  limit: 1
+
+accessories:
+  postgres:
+    image: postgres:17
+    host: <%= ENV['TAILSCALE_HOST'] %>
+    port: 5432
+    env:
+      clear:
+        POSTGRES_DB: janedoe_prod
+      secret:
+        - POSTGRES_PASSWORD
+    volumes:
+      - /var/lib/postgresql/data:/var/lib/postgresql/data
