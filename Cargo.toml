@@ -32,7 +32,7 @@ sqlx = { version = "0.8.6", features = [
 ] }
 tokio = { version = "1.47.1", features = ["rt-multi-thread", "tracing"] }
 tracing = "0.1.41"
-tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
+tracing-subscriber = { version = "0.3.20", features = ["env-filter"] }
 
 [build-dependencies]
 anyhow = "1.0.86"
